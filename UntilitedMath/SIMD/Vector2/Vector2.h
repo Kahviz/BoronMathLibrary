@@ -180,8 +180,11 @@ public:
         return !(*this == other);
     }
 
-    float x() const { return data[0]; }
-    float y() const { return data[1]; }
+    float& x() { return data[0]; }
+    const float& x() const { return data[0]; }
+
+    float& y() { return data[1]; }
+    const float& y() const { return data[1]; }
 
     //util
     float length() const {

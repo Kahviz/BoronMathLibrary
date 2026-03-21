@@ -16,6 +16,7 @@
 #include "Functions/LoadInt.h"
 #include "Functions/Utils.h"
 #include "Functions/TransformNormal.h"
+#include "Functions/TransformVector.h"
 
 #include "Variables.h"
 

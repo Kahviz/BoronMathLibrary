@@ -184,10 +184,17 @@ public:
         return !(*this == other);
     }
 
-    float x() const { return data[0]; }
-    float y() const { return data[1]; }
-    float z() const { return data[2]; }
-    float w() const { return data[3]; }
+    float& x() { return data[0]; }
+    const float& x() const { return data[0]; }
+
+    float& y() { return data[1]; }
+    const float& y() const { return data[1]; }
+
+    float& z() { return data[2]; }
+    const float& z() const { return data[2]; }
+
+    float& w() { return data[2]; }
+    const float& w() const { return data[2]; }
 
     //util
     float length() const {
