@@ -14,6 +14,7 @@
 #include "Functions/Matrix4x4Functions.h"
 #include "Functions/StoreComponent.h"
 #include "Functions/LoadInt.h"
+#include "Functions/LoadVector.h"
 #include "Functions/Utils.h"
 #include "Functions/TransformNormal.h"
 #include "Functions/TransformVector.h"
