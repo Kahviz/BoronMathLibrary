@@ -20,7 +20,14 @@ add_executable(UntilitedMathLibrary
 	UntilitedMath/SIMD/INT3/Int3.h
 	UntilitedMath/SIMD/Color255/Color255.h
 	UntilitedMath/SIMD/Matrix4x4/Matrix4x4.h
- "UntilitedMath/Functions/Matrix4x4LookAt.h" "UntilitedMath/Functions/Utils.h" "UntilitedMath/Variables.h" "UntilitedMath/Functions/StoreVector.h")
+	UntilitedMath/Functions/Matrix4x4Functions.h 
+	UntilitedMath/Functions/Utils.h
+	UntilitedMath/Variables.h
+	UntilitedMath/Functions/StoreComponent.h
+	UntilitedMath/Functions/TransformNormal.h
+	UntilitedMath/Functions/LoadInt.h
+	UntilitedMath/SIMD/Int2/Int2.h
+)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET UntilitedMathLibrary PROPERTY CXX_STANDARD 20)

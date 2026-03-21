@@ -7,42 +7,34 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello Engine" << endl;
+    cout << "Hello MathLib" << endl;
+    Color255 color255_1 = { 255,0,125 };
+    Color255 color255_2 = { 255,10,255 };
+    Int2 int2_1 = { 10,20 };
+    Int2 int2_2 = { 10,50 };
+    Int3 int3_1 = { 10,10,10 };
+    Int3 int3_2 = { 20,50,10 };
 
-    Vector2 vec2_1(2, 2);
-    Vector2 vec2_2(4, 4);
-    Vector2 dummy;
-    Int3 int3_1 = { 1,1,1 };
-    Int3 int3_2 = { 2,2,2 };
-    Color255 col1 = { 255,0,0 };
-    Color255 col2 = { 255,255,0 };
-    Matrix4x4 mat1 = { 5 };
-    Matrix4x4 mat2 = { 4 };
+    Matrix4x4 mat4x4_1;
+    mat4x4_1.setAll(5);
+    Matrix4x4 mat4x4_2;
+    mat4x4_2.setAll(10);
 
+    Vector2 vec2_1 = { 10.0f,11.0f };
+    Vector2 vec2_2 = { 10.0f,11.0f };
+    Vector3 vec3_1 = { 10.0f,11.0f,1.0f };
+    Vector3 vec3_2 = { 10.0f,11.0f,10.0f };
+    Vector4 vec4_1 = { 10.0f,11.0f,50.0f,10.0f };
+    Vector4 vec4_2 = { 10.0f,11.0f,5.0f,2.5f };
 
-    //All Here
+    cout << color255_1 + color255_2 << endl;
+    cout << int2_1 + int2_2 << endl;
     cout << int3_1 + int3_2 << endl;
-    cout << col1 + col2 << endl;
-    cout << mat1 - mat2 << endl;
+    cout << mat4x4_1 + mat4x4_2 << endl;
+    cout << vec2_1 + vec2_2 << endl;
 
-    const int Times = 1000000;
-    long long totalNanoseconds = 0;
-
-    for (int i = 0; i < Times; i++) {
-        auto start = std::chrono::high_resolution_clock::now();
-
-        dummy = vec2_1 - vec2_2;
-
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-        totalNanoseconds += duration.count();
-    }
-
-    double averageNs = static_cast<double>(totalNanoseconds) / Times;
-
-    cout << fixed << setprecision(2);
-    cout << "Average: " << averageNs << " ns" << endl;
-    cout << "Result: " << dummy << endl;
+    cout << vec3_1 + vec3_2 << endl;
+    cout << vec4_1 + vec4_2 << endl;
 
     return 0;
 }

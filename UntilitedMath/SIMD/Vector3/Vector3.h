@@ -1,3 +1,5 @@
+#pragma once
+
 #include <immintrin.h>
 #include <iostream>
 #include <cmath>
@@ -237,6 +239,16 @@ public:
     void set(float newX, float newY,float newZ) {
         data[0] = newX;
         data[1] = newY;
+        data[2] = newZ;
+    }
+
+    void setX(float newX) {
+        data[0] = newX;
+    }
+    void setY(float newY) {
+        data[1] = newY;
+    }
+    void setZ(float newZ) {
         data[2] = newZ;
     }
 

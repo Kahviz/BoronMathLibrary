@@ -2,38 +2,38 @@
 #include <iostream>
 #include <cmath>
 
-class Int3 {
+class Int2 {
 private:
     alignas(16) int data[4];
 public:
     //Constructors
-    Int3() {
+    Int2() {
         data[0] = 0;
         data[1] = 0;
         data[2] = 0;
         data[3] = 0;
     }
-    Int3(int xyz) {
-        data[0] = xyz;
-        data[1] = xyz;
-        data[2] = xyz;
+    Int2(int xy) {
+        data[0] = xy;
+        data[1] = xy;
+        data[2] = 0;
         data[3] = 0;
     }
-    Int3(int x, int y, int z) {
+    Int2(int x, int y) {
         data[0] = x;
         data[1] = y;
-        data[2] = z;
+        data[2] = 0;
         data[3] = 0;
     }
 
-    Int3(const int* arr) {
+    Int2(const int* arr) {
         data[0] = arr[0];
         data[1] = arr[1];
         data[2] = arr[2];
         data[3] = 0;
     };
 
-    Int3(const Int3& other) {
+    Int2(const Int2& other) {
         __m128i v = _mm_load_si128((__m128i*)other.data);
         _mm_store_si128((__m128i*)data, v);
     }
@@ -41,21 +41,21 @@ public:
     //Operators
     //+
 
-    Int3 operator+() const {
+    Int2 operator+() const {
         return *this;
     }
 
-    Int3 operator+(int scalar) const {
-        Int3 result;
+    Int2 operator+(int scalar) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
-        __m128i b = _mm_set1_epi32(scalar); 
+        __m128i b = _mm_set1_epi32(scalar);
         __m128i sum = _mm_add_epi32(a, b);
         _mm_store_si128((__m128i*)result.data, sum);
         return result;
     }
 
-    Int3 operator+(const Int3& other) const {
-        Int3 result;
+    Int2 operator+(const Int2& other) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_load_si128((__m128i*)other.data);
         __m128i sum = _mm_add_epi32(a, b);
@@ -63,8 +63,8 @@ public:
         return result;
     }
 
-    Int3 operator+=(const Int3& other) const {
-        Int3 result;
+    Int2 operator+=(const Int2& other) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i diff = _mm_add_epi32(a, b);
@@ -73,12 +73,12 @@ public:
     }
 
     //-
-    Int3 operator-() const {
-        return Int3(-data[0], -data[1], -data[2]);
+    Int2 operator-() const {
+        return Int2(-data[0], -data[1]);
     }
 
-    Int3 operator-(int scalar) const {
-        Int3 result;
+    Int2 operator-(int scalar) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(scalar);
         __m128i sum = _mm_sub_epi32(a, b);
@@ -86,8 +86,8 @@ public:
         return result;
     }
 
-    Int3 operator-(const Int3& other) const {
-        Int3 result;
+    Int2 operator-(const Int2& other) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i sum = _mm_sub_epi32(a, b);
@@ -95,8 +95,8 @@ public:
         return result;
     }
 
-    Int3& operator-=(const Int3& other) {
-        Int3 result;
+    Int2& operator-=(const Int2& other) {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i diff = _mm_sub_epi32(a, b);
@@ -105,8 +105,8 @@ public:
     }
 
     //*
-    Int3 operator*(float scalar) const {
-        Int3 result;
+    Int2 operator*(float scalar) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(scalar);
         __m128i prod = _mm_mul_epi32(a, b);
@@ -114,8 +114,8 @@ public:
         return result;
     }
 
-    Int3 operator*(const Int3& other) const {
-        Int3 result;
+    Int2 operator*(const Int2& other) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i prod = _mm_mul_epi32(a, b);
@@ -123,8 +123,8 @@ public:
         return result;
     }
 
-    Int3& operator*=(const Int3& other) {
-        Int3 result;
+    Int2& operator*=(const Int2& other) {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i diff = _mm_mul_epi32(a, b);
@@ -133,8 +133,8 @@ public:
     }
 
     // /
-    Int3 operator/(float scalar) const {
-        Int3 result;
+    Int2 operator/(float scalar) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(scalar);
         __m128i quot = _mm_div_epi32(a, b);
@@ -142,8 +142,8 @@ public:
         return result;
     }
 
-    Int3 operator/(const Int3& other) const {
-        Int3 result;
+    Int2 operator/(const Int2& other) const {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i quot = _mm_div_epi32(a, b);
@@ -151,8 +151,8 @@ public:
         return result;
     }
 
-    Int3& operator/=(const Int3& other) {
-        Int3 result;
+    Int2& operator/=(const Int2& other) {
+        Int2 result;
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_set1_epi32(*other.data);
         __m128i quot = _mm_div_epi32(a, b);
@@ -162,7 +162,7 @@ public:
 
     // =
 
-    Int3& operator=(const Int3& other) {
+    Int2& operator=(const Int2& other) {
         if (this != &other) {
             data[0] = other.data[0];
             data[1] = other.data[1];
@@ -173,19 +173,18 @@ public:
         return *this;
     }
 
-    bool operator==(const Int3& other) const {
+    bool operator==(const Int2& other) const {
         return data[0] == other.data[0] &&
             data[1] == other.data[1] &&
             data[2] == other.data[2];
     }
 
-    bool operator!=(const Int3& other) const {
+    bool operator!=(const Int2& other) const {
         return !(*this == other);
     }
 
     float x() const { return data[0]; }
     float y() const { return data[1]; }
-    float z() const { return data[2]; }
 
     //util
     float length() const {
@@ -232,7 +231,7 @@ public:
         }
     }
 
-    int dot(const Int3& other) const {
+    int dot(const Int2& other) const {
         __m128i a = _mm_load_si128((__m128i*)data);
         __m128i b = _mm_load_si128((__m128i*)other.data);
 
@@ -245,38 +244,35 @@ public:
     }
 
     //Setters
-    void set(float newX, float newY, float newZ) {
+    void set(float newX, float newY) {
         data[0] = newX;
         data[1] = newY;
-        data[2] = newZ;
     }
 
-    void set(const Int3& other) {
+    void set(const Int2& other) {
         __m128i v = _mm_load_si128((__m128i*)other.data);
         _mm_store_si128((__m128i*)data, v);
     }
 
-    Int3 cross(const Int3& other) const {
-        return Int3(
-            data[1] * other.data[2] - data[2] * other.data[1],
-            data[2] * other.data[0] - data[0] * other.data[2],
+    Int2 cross(const Int2& other) const {
+        return Int2(
             data[0] * other.data[1] - data[1] * other.data[0]
         );
     }
 
-    float distance(const Int3& other) const {
+    float distance(const Int2& other) const {
         return (*this - other).length();
     }
 
-    float distanceSquared(const Int3& other) const {
+    float distanceSquared(const Int2& other) const {
         return (*this - other).lengthSquared();
     }
 
-    Int3 lerp(const Int3& other, float t) const {
+    Int2 lerp(const Int2& other, float t) const {
         return *this * (1.0f - t) + other * t;
     }
 
-    float angle(const Int3& other) const {
+    float angle(const Int2& other) const {
         float dotProduct = dot(other);
         float lengths = length() * other.length();
         if (lengths == 0.0f) return 0.0f;
@@ -287,37 +283,34 @@ public:
         return _mm_cvtepi32_ps(_mm_load_si128((__m128i*)data));
     }
 
-    Int3 projectOnto(const Int3& onto) const {
+    Int2 projectOnto(const Int2& onto) const {
         float ontoLengthSq = onto.lengthSquared();
-        if (ontoLengthSq == 0.0f) return Int3::Zero();
+        if (ontoLengthSq == 0.0f) return Int2::Zero();
         return onto * (dot(onto) / ontoLengthSq);
     }
 
-    Int3 reflect(const Int3& normal) const {
+    Int2 reflect(const Int2& normal) const {
         return *this - normal * (2.0f * dot(normal));
     }
 
-    Int3 abs() const {
-        return Int3(
+    Int2 abs() const {
+        return Int2(
             std::abs(data[0]),
-            std::abs(data[1]),
-            std::abs(data[2])
+            std::abs(data[1])
         );
     }
 
-    Int3 min(const Int3& other) const {
-        return Int3(
+    Int2 min(const Int2& other) const {
+        return Int2(
             std::min(data[0], other.data[0]),
-            std::min(data[1], other.data[1]),
-            std::min(data[2], other.data[2])
+            std::min(data[1], other.data[1])
         );
     }
 
-    Int3 max(const Int3& other) const {
-        return Int3(
+    Int2 max(const Int2& other) const {
+        return Int2(
             std::max(data[0], other.data[0]),
-            std::max(data[1], other.data[1]),
-            std::max(data[2], other.data[2])
+            std::max(data[1], other.data[1])
         );
     }
 
@@ -325,14 +318,14 @@ public:
     int* data_ptr() { return data; }
 
     //standards
-    static Int3 Zero() { return Int3(0.0f, 0.0f, 0.0f); }
-    static Int3 One() { return Int3(1.0f, 1.0f, 1.0f); }
-    static Int3 UnitX() { return Int3(1.0f, 0.0f, 0.0f); }
-    static Int3 UnitY() { return Int3(0.0f, 1.0f, 0.0f); }
-    static Int3 UnitZ() { return Int3(0.0f, 0.0f, 1.0f); }
+    static Int2 Zero() { return Int2(0.0f, 0.0f); }
+    static Int2 One() { return Int2(1.0f, 1.0f); }
+    static Int2 UnitX() { return Int2(1.0f, 0.0f); }
+    static Int2 UnitY() { return Int2(0.0f, 1.0f); }
+    static Int2 UnitZ() { return Int2(0.0f, 0.0f); }
 };
 
-std::ostream& operator<<(std::ostream& os, const Int3& vec) {
-    os << "(" << vec.x() << ", " << vec.y() << ", " << vec.z() << ")";
+std::ostream& operator<<(std::ostream& os, const Int2& vec) {
+    os << "(" << vec.x() << ", " << vec.y() << ")";
     return os;
 }

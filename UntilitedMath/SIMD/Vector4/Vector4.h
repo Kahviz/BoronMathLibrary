@@ -236,12 +236,26 @@ public:
     }
 
     //Setters
-    void set(float newX, float newY, float newZ, float newW) {
+    void set(float newX, float newY, float newZ,float newW) {
         data[0] = newX;
         data[1] = newY;
         data[2] = newZ;
         data[3] = newW;
     }
+
+    void setX(float newX) {
+        data[0] = newX;
+    }
+    void setY(float newY) {
+        data[1] = newY;
+    }
+    void setZ(float newZ) {
+        data[2] = newZ;
+    }
+    void setW(float newW) {
+        data[3] = newW;
+    }
+
 
     void set(const Vector4& other) {
         __m128 v = _mm_load_ps(other.data);

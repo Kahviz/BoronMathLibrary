@@ -1,6 +1,7 @@
 #include <immintrin.h>
 #include <iostream>
 #include <cmath>
+
 class Vector2 {
 private:
     alignas(16) float data[4];
@@ -234,6 +235,12 @@ public:
         data[1] = newY;
     }
 
+    void setX(float newX) {
+        data[0] = newX;
+    }
+    void setY(float newY) {
+        data[1] = newY;
+    }
     void set(const Vector2& other) {
         __m128 v = _mm_load_ps(other.data);
         _mm_store_ps(data, v);

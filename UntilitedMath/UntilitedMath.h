@@ -5,11 +5,17 @@
 #include "SIMD/Vector4/Vector4.h"
 
 #include "SIMD/Int3/Int3.h"
+#include "SIMD/Int2/Int2.h"
+
 #include "SIMD/Color255/Color255.h"
+
 #include "SIMD/Matrix4x4/Matrix4x4.h"
 
-#include "Functions/Matrix4x4LookAt.h"
-#include "Functions/StoreVector.h"
+#include "Functions/Matrix4x4Functions.h"
+#include "Functions/StoreComponent.h"
+#include "Functions/LoadInt.h"
+#include "Functions/Utils.h"
+#include "Functions/TransformNormal.h"
 
 #include "Variables.h"
 
