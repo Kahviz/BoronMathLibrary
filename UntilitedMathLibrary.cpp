@@ -27,8 +27,6 @@ int main()
     Vector4 vec4_1 = { 10.0f,11.0f,50.0f,10.0f };
     Vector4 vec4_2 = { 10.0f,11.0f,5.0f,2.5f };
 
-    TransformVector3
-
     cout << color255_1 + color255_2 << endl;
     cout << int2_1 + int2_2 << endl;
     cout << int3_1 + int3_2 << endl;
