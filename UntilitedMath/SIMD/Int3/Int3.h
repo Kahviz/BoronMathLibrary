@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <cstdlib>
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 class Int3 {
 private:
     alignas(16) int data[4];

@@ -5,6 +5,10 @@
 #include <algorithm>
 #include <cstdlib>
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 class Vector4 {
 private:
     alignas(16) float data[4];

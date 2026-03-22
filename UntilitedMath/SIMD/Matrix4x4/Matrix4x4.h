@@ -8,6 +8,10 @@
 #include <algorithm>
 #include <cstdlib>
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 class Matrix4x4 {
 private:
     alignas(16) float data[16];

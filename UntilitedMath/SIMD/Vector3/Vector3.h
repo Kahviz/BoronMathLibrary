@@ -7,6 +7,10 @@
 #include <algorithm>
 #include <cstdlib>
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
 class Vector3 {
 private:
     alignas(16) float data[4];
