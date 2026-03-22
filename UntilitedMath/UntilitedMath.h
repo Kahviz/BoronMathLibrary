@@ -7,7 +7,7 @@
 #undef max
 #endif
 
-#define UNTILITEDMATHversion 0.01
+#define UNTILITEDMATHversion 0.02
 
 #include "SIMD/Vector2/Vector2.h"
 #include "SIMD/Vector3/Vector3.h"
