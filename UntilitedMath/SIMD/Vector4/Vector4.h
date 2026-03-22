@@ -435,7 +435,7 @@ public:
     }
 };
 
-std::ostream& operator<<(std::ostream& os, const Vector4& vec) {
+inline std::ostream& operator<<(std::ostream& os, const Vector4& vec) {
     os << "(" << vec.x() << ", " << vec.y() << ", " << vec.z() << ", " << vec.w() << ")";
     return os;
 }

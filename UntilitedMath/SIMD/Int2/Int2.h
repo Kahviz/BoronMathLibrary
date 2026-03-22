@@ -319,7 +319,7 @@ public:
     static Int2 UnitY() { return Int2(0, 1); }
 };
 
-std::ostream& operator<<(std::ostream& os, const Int2& vec) {
+inline std::ostream& operator<<(std::ostream& os, const Int2& vec) {
     os << "(" << vec.x() << ", " << vec.y() << ")";
     return os;
 }

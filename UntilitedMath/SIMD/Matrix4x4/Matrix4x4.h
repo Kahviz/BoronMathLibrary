@@ -310,7 +310,7 @@ public:
     }
 };
 
-std::ostream& operator<<(std::ostream& os, const Matrix4x4& mat) {
+inline std::ostream& operator<<(std::ostream& os, const Matrix4x4& mat) {
     for (int row = 0; row < 4; row++) {
         os << "[ ";
         for (int col = 0; col < 4; col++) {

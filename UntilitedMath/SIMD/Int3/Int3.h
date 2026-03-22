@@ -339,7 +339,7 @@ public:
     static Int3 UnitZ() { return Int3(0, 0, 1); }
 };
 
-std::ostream& operator<<(std::ostream& os, const Int3& vec) {
+inline std::ostream& operator<<(std::ostream& os, const Int3& vec) {
     os << "(" << vec.x() << ", " << vec.y() << ", " << vec.z() << ")";
     return os;
 }

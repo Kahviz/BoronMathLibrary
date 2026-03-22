@@ -379,7 +379,7 @@ public:
     static Color255 UnitZ() { return Color255(0, 0, 255); }
 };
 
-std::ostream& operator<<(std::ostream& os, const Color255& vec) {
+inline std::ostream& operator<<(std::ostream& os, const Color255& vec) {
     os << "(" << vec.x() << ", " << vec.y() << ", " << vec.z() << ")";
     return os;
 }
