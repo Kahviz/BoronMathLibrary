@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cmath>
 
+#include "../../UntilitedMath.h"
+
 class Matrix4x4 {
 private:
     alignas(16) float data[16];
@@ -247,9 +249,7 @@ public:
         return det;
     }
 
-    Matrix4x4 MatrixLookAtLH(const Vector3& eye, const Vector3& target, const Vector3& up) {
-        Matrix4x4 forward = {};
-    }
+ 
 
     void setIdentity() {
         memset(data, 0, sizeof(data));

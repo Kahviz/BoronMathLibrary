@@ -1,6 +1,7 @@
 #include <immintrin.h>
 #include <iostream>
 #include <cmath>
+#include "../Matrix4x4/Matrix4x4.h"
 
 class Vector2 {
 private:
@@ -321,6 +322,23 @@ public:
     static Vector2 One() { return Vector2(1.0f, 1.0f); }
     static Vector2 UnitX() { return Vector2(1.0f, 0.0f); }
     static Vector2 UnitY() { return Vector2(0.0f, 1.0f); }
+
+    inline Vector2 Vector2TransformCoord(const Vector2& v, const Matrix4x4& m) {
+        float x = v.x();
+        float y = v.y();
+
+        float resultX = m(0, 0) * x + m(0, 1) * y + m(0, 3);
+        float resultY = m(1, 0) * x + m(1, 1) * y + m(1, 3);
+        float resultW = m(3, 0) * x + m(3, 1) * y + m(3, 3);
+
+        if (resultW != 0.0f && resultW != 1.0f) {
+            float invW = 1.0f / resultW;
+            resultX *= invW;
+            resultY *= invW;
+        }
+
+        return Vector2(resultX, resultY);
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Vector2& vec) {

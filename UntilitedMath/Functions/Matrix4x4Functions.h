@@ -30,7 +30,7 @@ Matrix4x4 Matrix4x4LookAtRH(const Vector3& eye, const Vector3& target, const Vec
     return result;
 }
 
-Matrix4x4 Matrix4x4lookAtLH(const Vector3& eye, const Vector3& target, const Vector3& worldUp) {
+Matrix4x4 Matrix4x4LookAtLH(const Vector3& eye, const Vector3& target, const Vector3& worldUp) {
     Vector3 zaxis = target - eye;
     zaxis.normalize();
 
@@ -56,7 +56,7 @@ Matrix4x4 Matrix4x4lookAtLH(const Vector3& eye, const Vector3& target, const Vec
     return result;
 }
 
-Matrix4x4 MatrixPerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
+Matrix4x4 Matrix4x4PerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
     float f = 1.0f / tanf(fovRadians / 2.0f);
 
     Matrix4x4 m = {};
@@ -66,6 +66,20 @@ Matrix4x4 MatrixPerspectiveFovLH(float fovRadians, float aspect, float nearZ, fl
     m(2, 2) = farZ / (farZ - nearZ);
     m(2, 3) = 1.0f;
     m(3, 2) = -nearZ * farZ / (farZ - nearZ);
+
+    return m;
+}
+
+Matrix4x4 Matrix4x4PerspectiveFovRH(float fovRadians, float aspect, float nearZ, float farZ) {
+    float f = 1.0f / tanf(fovRadians / 2.0f);
+
+    Matrix4x4 m = {};
+
+    m(0, 0) = f / aspect;
+    m(1, 1) = f;
+    m(2, 2) = farZ / (nearZ - farZ);
+    m(2, 3) = -1.0f;
+    m(3, 2) = (nearZ * farZ) / (nearZ - farZ);
 
     return m;
 }
