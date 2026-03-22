@@ -1,7 +1,7 @@
 #pragma once
 #include "../UntilitedMath.h"
 
-Vector4 TransformVector4(const Vector4& v, const Matrix4x4& m) {
+Vector4 Vector4Transform(const Vector4& v, const Matrix4x4& m) {
     __m128 vec = _mm_loadu_ps(v.data_ptr());
 
     __m128 col0 = _mm_set_ps(m(4, 1), m(3, 1), m(2, 1), m(1, 1));
@@ -26,7 +26,7 @@ Vector4 TransformVector4(const Vector4& v, const Matrix4x4& m) {
     return output;
 }
 
-Vector3 TransformVector3(const Vector3& v, const Matrix4x4& m) {
+Vector3 Vector3Transform(const Vector3& v, const Matrix4x4& m) {
     __m128 vec = _mm_loadu_ps(v.data_ptr());
     vec = _mm_and_ps(vec, _mm_set_ps(0.0f, -0.0f, -0.0f, -0.0f));
 

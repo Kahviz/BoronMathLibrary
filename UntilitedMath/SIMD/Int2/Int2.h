@@ -1,6 +1,8 @@
 #include <immintrin.h>
 #include <iostream>
 #include <cmath>
+#include <algorithm>
+#include <cstdlib>
 
 class Int2 {
 private:

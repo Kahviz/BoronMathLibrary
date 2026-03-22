@@ -27,7 +27,9 @@ add_executable(UntilitedMathLibrary
 	UntilitedMath/Functions/TransformNormal.h
 	UntilitedMath/Functions/LoadInt.h
 	UntilitedMath/SIMD/Int2/Int2.h
- "UntilitedMath/Functions/TransformVector.h" "UntilitedMath/Functions/LoadVector.h")
+	UntilitedMath/Functions/TransformVector.h
+	UntilitedMath/Functions/LoadVector.h
+)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET UntilitedMathLibrary PROPERTY CXX_STANDARD 20)

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <algorithm>
+#include <cstdlib>
 
 #ifdef min
 #undef min
