@@ -1,5 +1,6 @@
 #pragma once
 
+#define UNTILITEDMATHversion 0.01
 #include "SIMD/Vector2/Vector2.h"
 #include "SIMD/Vector3/Vector3.h"
 #include "SIMD/Vector4/Vector4.h"
