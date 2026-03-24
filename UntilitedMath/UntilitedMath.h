@@ -6,7 +6,7 @@
 #ifdef max
 #undef max
 #endif
-
+//WIndows
 #define UNTILITEDMATHversion 0.06
 
 #include "SIMD/Vector2/Vector2.h"
@@ -42,8 +42,3 @@
 #include "GPU/Functions/LoadGPUInt.h"
 #include "GPU/Functions/StoreGPUComponent.h"
 #include "GPU/Functions/TransformGPUNormal.h"
-
-
-
-
-

@@ -56,7 +56,7 @@ inline GPUMatrix4x4 operator/(const GPUMatrix4x4& a, float scalar)
     };
 }
 
-inline GPUMatrix4x4 MatrixRotationRollPitchYaw(float pitch, float yaw, float roll) {
+inline GPUMatrix4x4 GPUMatrix4x4RotationRollPitchYaw(float pitch, float yaw, float roll) {
     float cp = cosf(pitch), sp = sinf(pitch);
     float cy = cosf(yaw), sy = sinf(yaw);
     float cr = cosf(roll), sr = sinf(roll);
@@ -71,7 +71,7 @@ inline GPUMatrix4x4 MatrixRotationRollPitchYaw(float pitch, float yaw, float rol
     return m;
 }
 
-inline GPUMatrix4x4 MatrixPerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
+inline GPUMatrix4x4 GPUMatrix4x4PerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
     float f = 1.0f / tanf(fovRadians / 2.0f);
 
     GPUMatrix4x4 m = {};
@@ -100,7 +100,7 @@ inline float Determinant3x3(float a1, float a2, float a3,
     return a1 * (b2 * c3 - b3 * c2) - a2 * (b1 * c3 - b3 * c1) + a3 * (b1 * c2 - b2 * c1);
 }
 
-inline GPUMatrix4x4 InverseMatrix(const GPUMatrix4x4& m) {
+inline GPUMatrix4x4 InverseGPUMatrix4x4(const GPUMatrix4x4& m) {
     GPUMatrix4x4 inv;
     float det;
 
