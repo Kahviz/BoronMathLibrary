@@ -1,5 +1,5 @@
 #pragma once
-#include "../UntilitedMath.h"
+#include "UntilitedMath.h"
 
 inline Vector4 Vector4Transform(const Vector4& v, const Matrix4x4& m) {
     __m128 vec = _mm_loadu_ps(v.data_ptr());

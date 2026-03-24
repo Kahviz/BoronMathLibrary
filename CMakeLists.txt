@@ -12,23 +12,42 @@ endif()
 project ("UntilitedMathLibrary")
 
 add_executable(UntilitedMathLibrary 
+	#CPU
 	UntilitedMathLibrary.cpp
 	UntilitedMathLibrary.h
 	UntilitedMath/UntilitedMath.h
+
 	UntilitedMath/SIMD/Vector3/Vector3.h
 	UntilitedMath/SIMD/Vector4/Vector4.h
-	UntilitedMath/SIMD/INT3/Int3.h
 	UntilitedMath/SIMD/Color255/Color255.h
 	UntilitedMath/SIMD/Matrix4x4/Matrix4x4.h
-	UntilitedMath/Functions/Matrix4x4Functions.h 
-	UntilitedMath/Functions/Utils.h
-	UntilitedMath/Variables.h
-	UntilitedMath/Functions/StoreComponent.h
-	UntilitedMath/Functions/TransformNormal.h
-	UntilitedMath/Functions/LoadInt.h
 	UntilitedMath/SIMD/Int2/Int2.h
-	UntilitedMath/Functions/TransformVector.h
-	UntilitedMath/Functions/LoadVector.h
+	UntilitedMath/Variables.h
+
+	#Functions
+	UntilitedMath/SIMD/Functions/TransformVector.h
+	UntilitedMath/SIMD/Functions/LoadVector.h
+	UntilitedMath/SIMD/Functions/StoreComponent.h
+	UntilitedMath/SIMD/Functions/TransformNormal.h
+	UntilitedMath/SIMD/Functions/LoadInt.h
+	UntilitedMath/SIMD/Functions/Matrix4x4Functions.h 
+	UntilitedMath/SIMD/Functions/Utils.h
+
+	#GPU
+	UntilitedMath/GPU/GPUVector2/GPUVector2.h
+	UntilitedMath/GPU/GPUInt3/GPUInt3.h
+	UntilitedMath/GPU/GPUVector3/GPUVector3.h 
+	UntilitedMath/GPU/GPUVector4/GPUVector4.h 
+	UntilitedMath/GPU/GPUMatrix4x4/GPUMatrix4x4.h
+
+	#Functions
+	UntilitedMath/GPU/Functions/StoreGPUComponent.h
+ "UntilitedMath/GPU/Functions/LoadGPUInt.h" "UntilitedMath/GPU/Functions/TransformGPUNormal.h")
+
+target_include_directories(UntilitedMathLibrary PRIVATE 
+	../SIMD/
+	UntilitedMath/
+	GPU/
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

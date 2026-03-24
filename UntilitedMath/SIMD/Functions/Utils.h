@@ -1,6 +1,6 @@
 #pragma once
-#include "../UntilitedMath.h"
-#include "../Variables.h"
+#include "UntilitedMath.h"
+#include "Variables.h"
 
 inline float DegreesToRadians(float degrees)
 {

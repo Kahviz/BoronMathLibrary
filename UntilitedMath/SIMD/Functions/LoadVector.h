@@ -1,5 +1,5 @@
 #pragma once
-#include "../UntilitedMath.h"
+#include "UntilitedMath.h"
 
 //Vector2
 inline Vector2 Vector2ToVector2(const Vector2& a) {

@@ -1,6 +1,6 @@
 #pragma once
-#include "../SIMD/Vector3/Vector3.h"
-#include "../SIMD/Matrix4x4/Matrix4x4.h"
+#include "../../SIMD/Vector3/Vector3.h"
+#include "../../SIMD/Matrix4x4/Matrix4x4.h"
 
 #ifndef NOMINMAX
 #define NOMINMAX
@@ -62,20 +62,6 @@ inline Matrix4x4 Matrix4x4LookAtLH(const Vector3& eye, const Vector3& target, co
     return result;
 }
 
-inline Matrix4x4 Matrix4x4PerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
-    float f = 1.0f / tanf(fovRadians / 2.0f);
-
-    Matrix4x4 m = {};
-
-    m(0, 0) = f / aspect;
-    m(1, 1) = f;
-    m(2, 2) = farZ / (farZ - nearZ);
-    m(2, 3) = 1.0f;
-    m(3, 2) = -nearZ * farZ / (farZ - nearZ);
-
-    return m;
-}
-
 inline Matrix4x4 Matrix4x4PerspectiveFovRH(float fovRadians, float aspect, float nearZ, float farZ) {
     float f = 1.0f / tanf(fovRadians / 2.0f);
 
@@ -90,3 +76,16 @@ inline Matrix4x4 Matrix4x4PerspectiveFovRH(float fovRadians, float aspect, float
     return m;
 }
 
+inline Matrix4x4 Matrix4x4PerspectiveFovLH(float fovRadians, float aspect, float nearZ, float farZ) {
+    float f = 1.0f / tanf(fovRadians / 2.0f);
+
+    Matrix4x4 m = {};
+
+    m(0, 0) = f / aspect;
+    m(1, 1) = f;
+    m(2, 2) = farZ / (farZ - nearZ);
+    m(2, 3) = 1.0f;
+    m(3, 2) = -nearZ * farZ / (farZ - nearZ);
+
+    return m;
+}

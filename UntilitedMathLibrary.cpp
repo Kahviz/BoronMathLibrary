@@ -12,8 +12,8 @@ int main()
     Color255 color255_2 = { 255,10,255 };
     Int2 int2_1 = { 10,20 };
     Int2 int2_2 = { 10,50 };
-    Int3 int3_1 = { 10,10,10 };
-    Int3 int3_2 = { 20,50,10 };
+    Int3 Int3_1 = { 10,10,10 };
+    Int3 Int3_2 = { 20,50,10 };
 
     Matrix4x4 mat4x4_1;
     mat4x4_1.setAll(5);
@@ -29,7 +29,7 @@ int main()
 
     cout << color255_1 + color255_2 << endl;
     cout << int2_1 + int2_2 << endl;
-    cout << int3_1 + int3_2 << endl;
+    cout << Int3_1 + Int3_2 << endl;
     cout << mat4x4_1 + mat4x4_2 << endl;
     cout << vec2_1 + vec2_2 << endl;
 

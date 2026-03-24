@@ -1,5 +1,5 @@
 #pragma once
-#include "../UntilitedMath.h"
+#include "UntilitedMath.h"
 
 inline Vector4 LoadInt3(Int3 a) {
 	return Vector4(
