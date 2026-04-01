@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <cstdlib>
 
+class Vector4;
+
 #ifndef NOMINMAX
 #define NOMINMAX
 #endif
@@ -49,6 +51,16 @@ public:
     const float* RowC(int row) const {
         return &data[row * 4];
     }
+
+    Vector4& row0() { return reinterpret_cast<Vector4&>(data[0]); }
+    Vector4& row1() { return reinterpret_cast<Vector4&>(data[4]); }
+    Vector4& row2() { return reinterpret_cast<Vector4&>(data[8]); }
+    Vector4& row3() { return reinterpret_cast<Vector4&>(data[12]); }
+
+    Vector4& x() { return reinterpret_cast<Vector4&>(data[0]); }
+    Vector4& y() { return reinterpret_cast<Vector4&>(data[4]); }
+    Vector4& z() { return reinterpret_cast<Vector4&>(data[8]); }
+    Vector4& w() { return reinterpret_cast<Vector4&>(data[12]); }
 
     //operators
     

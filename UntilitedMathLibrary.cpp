@@ -36,6 +36,9 @@ int main()
     cout << vec3_1 + vec3_2 << endl;
     cout << vec4_1 + vec4_2 << endl;
 
+    mat4x4_1.row0() = { 67,67,67,67 };
+
+    cout << mat4x4_1 << endl;
     return 0;
 }
 
