@@ -5,9 +5,9 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("UntilitedMathLibrary")
+project ("EclipseMathLibrary")
 
-add_executable(UntilitedMathLibrary 
+add_executable(EclipseMathLibrary 
 	#CPU
 	UntilitedMathLibrary.cpp
 	UntilitedMathLibrary.h
@@ -38,15 +38,16 @@ add_executable(UntilitedMathLibrary
 
 	#Functions
 	UntilitedMath/GPU/Functions/StoreGPUComponent.h
-	UntilitedMath/GPU/Functions/LoadGPUInt.h UntilitedMath/GPU/Functions/TransformGPUNormal.h
+	UntilitedMath/GPU/Functions/LoadGPUInt.h 
+	UntilitedMath/GPU/Functions/TransformGPUNormal.h
 )
 
-target_include_directories(UntilitedMathLibrary PRIVATE 
+target_include_directories(EclipseMathLibrary PRIVATE 
 	../SIMD/
 	UntilitedMath/
 	GPU/
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET UntilitedMathLibrary PROPERTY CXX_STANDARD 20)
+  set_property(TARGET EclipseMathLibrary PROPERTY CXX_STANDARD 20)
 endif()
