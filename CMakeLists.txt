@@ -5,9 +5,9 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("EclipseMathLibrary")
+project ("BoronMathLibrary")
 
-add_executable(EclipseMathLibrary 
+add_executable(BoronMathLibrary 
 	#CPU
 	UntilitedMathLibrary.cpp
 	UntilitedMathLibrary.h
@@ -42,12 +42,12 @@ add_executable(EclipseMathLibrary
 	UntilitedMath/GPU/Functions/TransformGPUNormal.h
 )
 
-target_include_directories(EclipseMathLibrary PRIVATE 
+target_include_directories(BoronMathLibrary PRIVATE 
 	../SIMD/
 	UntilitedMath/
 	GPU/
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET EclipseMathLibrary PROPERTY CXX_STANDARD 20)
+  set_property(TARGET BoronMathLibrary PROPERTY CXX_STANDARD 20)
 endif()
