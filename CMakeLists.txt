@@ -40,7 +40,8 @@ add_executable(BoronMathLibrary
 	BoronMath/GPU/Functions/StoreGPUComponent.h
 	BoronMath/GPU/Functions/LoadGPUInt.h 
 	BoronMath/GPU/Functions/TransformGPUNormal.h
- "BoronMath/Sturucts/Transform.h")
+	BoronMath/Structs/Transform.h
+)
 
 target_include_directories(BoronMathLibrary PRIVATE 
 	../SIMD/
