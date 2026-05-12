@@ -1,5 +1,5 @@
 #pragma once
-#include <SIMD/Vector3/Vector3.h>
+#include <BoronMath.h>
 
 struct Transform {
     Vector3 Position{ 0,0,0 };
