@@ -3,6 +3,6 @@
 
 struct Transform {
     Vector3 Position{ 0,0,0 };
-    Vector3 Rotation{ 0,0,0 };
-    Vector3 Scale{ 1,1,1 };
+    Vector3 Orientation{ 0,0,0 };
+    Vector3 Size{ 1,1,1 };
 };

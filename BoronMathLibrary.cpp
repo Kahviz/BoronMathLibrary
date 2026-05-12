@@ -38,6 +38,7 @@ int main()
 
     mat4x4_1.row0() = { 67,67,67,67 };
 
+
     cout << mat4x4_1 << endl;
     return 0;
 }
