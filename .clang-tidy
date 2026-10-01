@@ -22,7 +22,6 @@ Checks:
   - 'readability-*'
   # Disable some checks that are too strict, annoying or irrelevant
   - '-cert-env33-c'                         # Calling system is not necessarily a security risk, and this check is too strict
-  - '-clang-analyzer-security.ArrayBound'   # false positives with Rml::Variant::Get
   - '-cppcoreguidelines-avoid-const-or-ref-data-members'
   - '-cppcoreguidelines-avoid-do-while'
   - '-cppcoreguidelines-avoid-magic-numbers'
