@@ -1,12 +1,13 @@
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
 #include <immintrin.h>
 #include <iostream>
-#include <cmath>
 
 #include "../../BoronMath.h"
-#include <algorithm>
-#include <cstdlib>
 
 namespace BML {
     class Vector4;
