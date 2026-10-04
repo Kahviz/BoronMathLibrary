@@ -1,11 +1,21 @@
 ﻿cmake_minimum_required (VERSION 3.10)
 
+include(FetchContent)
+
 if (POLICY CMP0141)
   cmake_policy(SET CMP0141 NEW)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
 project ("BoronMathLibrary")
+
+FetchContent_Declare(
+    BoronTest
+    GIT_REPOSITORY https://github.com/Kahviz/BoronTest.git
+    GIT_TAG 0.0.4
+)
+
+FetchContent_MakeAvailable(BoronTest)
 
 add_executable(BoronMathLibrary 
 	#CPU
@@ -40,7 +50,9 @@ add_executable(BoronMathLibrary
 	BoronMath/GPU/Functions/StoreGPUComponent.h
 	BoronMath/GPU/Functions/LoadGPUInt.h 
 	BoronMath/GPU/Functions/TransformGPUNormal.h
-)
+ "Tests/Tests.h" "Tests/Tests.cpp")
+
+target_link_libraries(BoronMathLibrary PRIVATE BoronTest)
 
 target_include_directories(BoronMathLibrary PRIVATE 
 	../SIMD/
