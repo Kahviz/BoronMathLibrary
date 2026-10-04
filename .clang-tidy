@@ -1,0 +1,50 @@
+---
+Checks:
+  - '-*'
+  - 'abseil-*'
+  - 'bugprone-*'
+  - 'cert-*'
+  - 'clang-analyzer-*'
+  - 'concurrency-*'
+  - 'cppcoreguidelines-*'
+  - 'google-default-arguments'
+  - 'google-runtime-operator'
+  - 'hicpp-exception-baseclass'
+  - 'hicpp-multiway-paths-covered'
+  - 'llvm-*'
+  - 'misc-*'
+  - 'modernize-*'
+  - 'mpi-buffer-deref'
+  - 'mpi-type-mismatch'
+  - 'openmp-use-default-none'
+  - 'performance-*'
+  - 'portability-simd-intrinsics'
+  - 'readability-*'
+  # Disable some checks that are too strict, annoying or irrelevant
+  - '-cert-env33-c'                         # Calling system is not necessarily a security risk, and this check is too strict
+  - '-cppcoreguidelines-avoid-const-or-ref-data-members'
+  - '-cppcoreguidelines-avoid-do-while'
+  - '-cppcoreguidelines-avoid-magic-numbers'
+  - '-cppcoreguidelines-avoid-non-const-global-variables'
+  - '-cppcoreguidelines-non-private-member-variables-in-classes'
+  - '-cppcoreguidelines-owning-memory'
+  - '-cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'
+  - '-cppcoreguidelines-pro-bounds-constant-array-index'
+  - '-cppcoreguidelines-pro-bounds-pointer-arithmetic'
+  - '-cppcoreguidelines-pro-type-reinterpret-cast'
+  - '-cppcoreguidelines-pro-type-union-access'
+  - '-cppcoreguidelines-pro-type-vararg'
+  - '-llvm-header-guard'                    # For some reason, this triggers on header guards that are perfectly fine
+  - '-llvm-prefer-static-over-anonymous-namespace'
+  - '-misc-no-recursion'
+  - '-misc-non-private-member-variables-in-classes'
+  - '-modernize-use-trailing-return-type'   # Kind of annoying for simple functions, although useful for complex return types
+  - '-readability-braces-around-statements' # For simple if(x) return; statements, braces are just annoying
+  - '-readability-identifier-length'        # Short names like "idx" are totally fine
+  - '-readability-implicit-bool-conversion' # Checking pointers for null using if(ptr) is perfectly readable and common
+  - '-readability-magic-numbers'            # Triggers for trivial constants way too often
+  # To check:
+  - '-bugprone-easily-swappable-parameters'
+  - '-readability-math-missing-parentheses'
+  - '-readability-redundant-preprocessor'
+  - '-readability-uppercase-literal-suffix'
